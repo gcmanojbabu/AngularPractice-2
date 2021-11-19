@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StorageService } from './storage.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ export class AppComponent {
   title = 'myapp';
 
   handleEvent(){
-    console.log('Clicked');    
+    console.log('Clicked', this.title);    
   }
   
 }

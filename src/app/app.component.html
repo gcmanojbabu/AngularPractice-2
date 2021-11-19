@@ -1,3 +1,3 @@
-<h4>{{title}}</h4>
+<h4>{{title | uppercase}}</h4>
 <button (click)='handleEvent()'>Click</button>
-<input placeholder="hello" [(ngModel)]='title' (keydown)='handleEvent()'>
+<input placeholder="hello" [ngModel]="title">
