@@ -1,3 +1,6 @@
-<h4>{{title | uppercase}}</h4>
-<button (click)='handleEvent()'>Click</button>
-<input placeholder="hello" [ngModel]="title">
+<h4>{{ title | truncate }}</h4>
+<h4>{{ title }}</h4>
+<h4>{{ jsonValue | json }}</h4>
+<h4>{{ newDate | date: "d:M" }}</h4>
+<button (click)="handleEvent()">Click</button>
+<input placeholder="hello" [(ngModel)]="title" />

@@ -1,18 +1,23 @@
 import { Component } from '@angular/core';
-import { StorageService } from './storage.service';
+import { HttpService } from './http.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'myapp';
+  title = 'hello world how are you doing';
+  jsonValue = {
+    a: 'hello',
+    b: 'world',
+  };
 
-  handleEvent(){
-    console.log('Clicked', this.title);    
+  newDate = new Date();
+
+  constructor(private httpService: HttpService) {}
+
+  handleEvent() {
+    this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1');
   }
-  
 }
-
-
