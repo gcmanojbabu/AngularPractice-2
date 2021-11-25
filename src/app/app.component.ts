@@ -18,6 +18,9 @@ export class AppComponent {
   constructor(private httpService: HttpService) {}
 
   handleEvent() {
-    this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1');
+    this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1')
+    .subscribe((response) =>{
+      this,this.jsonValue = response
+    });
   }
 }
