@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 interface UserInterface {
   name: string;
@@ -19,11 +19,18 @@ export class UserComponent implements OnInit {
   //   id: 0
   // }
   @Input() user: UserInterface;
+
+  // @Output() userEvent = new EventEmitter<UserInterface>();
+  @Output() userEvent: EventEmitter<UserInterface>
   constructor() {
+    this.userEvent=new EventEmitter<UserInterface>();
     this.user = {} as UserInterface;
   }
 
   ngOnInit(): void {
   }
 
+  sendUserEvent(): void{
+    this.userEvent.emit(this.user);
+  }
 }
