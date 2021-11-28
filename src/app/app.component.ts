@@ -7,20 +7,28 @@ import { HttpService } from './http.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'hello world how are you doing';
-  jsonValue = {
-    a: 'hello',
-    b: 'world',
-  };
+  // title = 'hello world how are you doing';
+
+  // jsonValue = {
+  //   a: 'hello',
+  //   b: 'world',
+  // };
+
+  userObject = {
+    name: "jhon",
+    age: "32",
+    id: 0
+  }
 
   newDate = new Date();
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService) { }
 
   handleEvent() {
     this.httpService.getRequest('https://jsonplaceholder.typicode.com/todos/1')
-    .subscribe((response) =>{
-      this,this.jsonValue = response
-    });
+      .subscribe((response) => {
+        console.log('hello');
+
+      });
   }
 }
