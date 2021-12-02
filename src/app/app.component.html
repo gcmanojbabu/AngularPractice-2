@@ -5,8 +5,21 @@
 <button (click)="handleEvent()">Click</button>
 <input placeholder="hello" [(ngModel)]="title" /> -->
 
-<input type="text" placeholder="user" [(ngModel)] = "userObject.name">
-<input type="text" placeholder="user" [(ngModel)] = "userObject.age">
-<input type="text" placeholder="user" [(ngModel)] = "userObject.id">
+<input type="text" placeholder="user" [(ngModel)]="userObject.name" />
+<input type="text" placeholder="user" [(ngModel)]="userObject.age" />
+<input type="text" placeholder="user" [(ngModel)]="userObject.id" />
+<ng-container *ngIf="!showUser">
+  <app-user [user]="userObject" (userEvent)="handleEvent($event)"></app-user>
+</ng-container>
 
-<app-user [user]="userObject" (userEvent)='handleEvent($event)'></app-user>
+<!-- <ul *ngFor="let item of posts; let i = index">
+    <li>{{i}}</li>
+    <li>{{item.title}}</li>
+</ul> -->
+
+<ul *ngFor="let item of (posts | async); let i = index">
+    <li>{{i}}</li>
+    <li>{{item.id}}</li>
+    <li>{{item.title}}</li>
+</ul>
+
