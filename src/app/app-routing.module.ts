@@ -7,10 +7,16 @@ import { SecondComponent } from './second/second.component';
 import { ThirdComponent } from './third/third.component';
 
 const routes: Routes = [
-  {path: 'first', component: FirstComponent },
-  {path: 'second', component: SecondComponent },
-  {path: 'third', component: ThirdComponent },
-  {path: 'fourth', component: FourthComponent },
+  { path: 'first', component: FirstComponent },
+  { path: 'second', component: SecondComponent },
+  { path: 'third', component: ThirdComponent },
+  { path: 'fourth', component: FourthComponent },
+  {
+    path: '',
+    redirectTo: '/first',
+    pathMatch:'full'
+  },
+  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
   {
     path: '**',
     component: FirstComponent
