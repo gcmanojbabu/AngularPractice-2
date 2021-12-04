@@ -14,9 +14,14 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/first',
-    pathMatch:'full'
+    pathMatch: 'full'
   },
-  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
+  {
+    path: 'customer', 
+    canActivate: [],
+    loadChildren: () => import('./customer/customer.module')
+      .then(m => m.CustomerModule)
+  },        
   {
     path: '**',
     component: FirstComponent
