@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { first } from 'rxjs';
+import { BlockitGuard } from './blockit.guard';
 import { FirstComponent } from './first/first.component';
 import { FourthComponent } from './fourth/fourth.component';
 import { SecondComponent } from './second/second.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'customer', 
-    canActivate: [],
+    canActivate: [BlockitGuard],
     loadChildren: () => import('./customer/customer.module')
       .then(m => m.CustomerModule)
   },        
@@ -29,7 +30,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      enableTracing: true
+    }
+    )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

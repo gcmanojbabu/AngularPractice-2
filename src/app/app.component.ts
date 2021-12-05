@@ -9,7 +9,12 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'myappPart2';
 
-  constructor(private router: Router){}
+  constructor(private router: Router){
+    this.router.events.subscribe((e)=>{
+      console.log(e);
+      
+    })
+  }
 
   goToRoute(route: string = '/fourth'){
     this.router.navigateByUrl(route).then(()=>{
