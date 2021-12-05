@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { min } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,13 @@ export class AppComponent {
   title = 'myappPart2';
 
   testProp = new FormControl('');
+  
+  profileForm = new FormGroup({
+    firstName: new FormControl('', Validators.min(2)),
+    lastName: new FormControl(''),
+  });
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private fb: FormBuilder) {
     this.router.events.subscribe((e) => {
       console.log(e);
 

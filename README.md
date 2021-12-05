@@ -1,4 +1,5 @@
-# MyappPart2
+# Myapp
+Part2
 Source: https://youtu.be/LA_v8isNp5E
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
